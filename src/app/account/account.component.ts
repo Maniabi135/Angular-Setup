@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AccountComponent implements OnInit {
 
   name;
-
+  userName = 'Angular';
   constructor( public router: Router, public data_service: ApiService, public route: ActivatedRoute) {
     this.route.params.subscribe(data => this.name = data);
   }
@@ -22,6 +22,7 @@ export class AccountComponent implements OnInit {
 
   logout() {
     this.router.navigate(['']);
+    this.data_service.navId(this.userName);
   }
 
 }
