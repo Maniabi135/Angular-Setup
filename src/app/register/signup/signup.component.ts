@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
+import { ApiService } from './../../api.service';
 @Component({
   selector   : 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  id = 10;
-  constructor( public router: Router) { }
+  userName;
+
+  constructor( public router: Router, public data_service: ApiService) { }
 
   ngOnInit() {
+    this.data_service.login_name.subscribe(data => this.userName = data);
   }
 
-  signup() {
-    this.router.navigate(['./account/{{id}}']);
+  signin() {
+    this.data_service.navId(this.userName);
+    this.data_service.login_name.subscribe(data => this.userName = data);
+    this.router.navigate(['/account/' + this.userName]);
   }
 
 }

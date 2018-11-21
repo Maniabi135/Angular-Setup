@@ -1,5 +1,10 @@
 <div class="center">
-    <div class="text-center">
-        <button type="button" class="btn btn-outline-success" (click)="signup()">Sign Up</button>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="userName">
+        </div>
+    </div>
+    <div class="text-center pt-5">
+        <button type="button" class="btn btn-outline-success" (click)="signin()">Sign Up</button>
     </div>
 </div>
